@@ -195,8 +195,9 @@ setUpPyEnv() {
 }
 
 main
-touch /etc/ld.so.preload
 #echo "${DD_DIR}/continuousprofiler/Datadog.Linux.ApiWrapper.x64.so" > /etc/ld.so.preload
+
+echo "Creating log folder"
 ${DD_DIR}/createLogPath.sh
 echo "Executing start command: \"$DD_START_APP\""
 cd "$CURRENT_DIR"
