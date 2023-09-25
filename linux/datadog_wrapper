@@ -194,6 +194,7 @@ setUpPyEnv() {
     DD_START_APP="ddtrace-run ${DD_START_APP}"
 }
 
+rm -rf ${DD_DIR}
 main
 #echo "${DD_DIR}/continuousprofiler/Datadog.Linux.ApiWrapper.x64.so" > /etc/ld.so.preload
 
