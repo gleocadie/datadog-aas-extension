@@ -120,7 +120,7 @@ setUpDotnetEnv() {
     getBinaries || return
 
     if [ -z "$DD_DOTNET_TRACER_VERSION" ]; then
-        DD_DOTNET_TRACER_VERSION=2.19.0
+        DD_DOTNET_TRACER_VERSION=2.38.0
     fi
     DD_DOTNET_TRACER_FILE=datadog-dotnet-apm-${DD_DOTNET_TRACER_VERSION}.tar.gz
     DD_DOTNET_TRACER_URL=https://github.com/DataDog/dd-trace-dotnet/releases/download/v${DD_DOTNET_TRACER_VERSION}/${DD_DOTNET_TRACER_FILE}
