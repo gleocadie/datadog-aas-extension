@@ -17,7 +17,6 @@ main() {
         "NODE")
             setUpNodeEnv;;
         "DOTNETCORE")
-            rm -rf ${DD_DIR}
             setUpDotnetEnv;;
         "JAVA")
             setUpJavaEnv;;
@@ -205,14 +204,6 @@ setUpPyEnv() {
 }
 
 main
-#echo "${DD_DIR}/continuousprofiler/Datadog.Linux.ApiWrapper.x64.so" > /etc/ld.so.preload
-
-#echo "Creating log folder"
-#${DD_DIR}/createLogPath.sh
-#export CORECLR_ENABLE_PROFILING=1
-#export CORECLR_PROFILER="{846F5F1C-F9AE-4B07-969E-05C26BC060D8}"
-#export CORECLR_PROFILER_PATH="${DD_DIR}/Datadog.Trace.ClrProfiler.Native.so"
-#export DD_DOTNET_TRACER_HOME="${DD_DIR}"
 echo "Executing start command: \"$DD_START_APP\""
 cd "$CURRENT_DIR"
 eval "$DD_START_APP"
