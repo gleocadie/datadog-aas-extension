@@ -195,6 +195,7 @@ setUpPyEnv() {
 }
 
 main
+touch /etc/ld.so.preload
 echo "Executing start command: \"$DD_START_APP\""
 cd "$CURRENT_DIR"
 eval "$DD_START_APP"
