@@ -127,15 +127,15 @@ setUpDotnetEnv() {
     DD_DOTNET_TRACER_URL=https://github.com/DataDog/dd-trace-dotnet/releases/download/v${DD_DOTNET_TRACER_VERSION}/${DD_DOTNET_TRACER_FILE}
 
     echo "Installing .NET tracer from $DD_DOTNET_TRACER_URL"
+    rm -rf *
     if curl -L --fail "$DD_DOTNET_TRACER_URL" -o "$DD_DOTNET_TRACER_FILE"; then
         tar -xzf "$DD_DOTNET_TRACER_FILE" || return
-        echo "Creating log folder"
-        ${DD_DIR}/createLogPath.sh
     else
         echo "Downloading the tracer was unsuccessful"
         return
     fi
 
+    echo "Exporting environment variables"
     export CORECLR_ENABLE_PROFILING=1
     export CORECLR_PROFILER="{846F5F1C-F9AE-4B07-969E-05C26BC060D8}"
     export CORECLR_PROFILER_PATH="${DD_DIR}/Datadog.Trace.ClrProfiler.Native.so"
@@ -143,6 +143,8 @@ setUpDotnetEnv() {
     if [[ "${DD_PROFILING_ENABLED:-,,}" == "1" ]]; then
         export LD_PRELOAD="${DD_DIR}/continuousprofiler/Datadog.Linux.ApiWrapper.x64.so"
     fi
+    echo "Creating log folder"
+    ${DD_DIR}/createLogPath.sh
     
 }
 
