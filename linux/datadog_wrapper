@@ -90,6 +90,7 @@ setUpBinary() {
 
     else
         echo "Version $DD_AAS_LINUX_VERSION of $BINARY previously installed"
+        tar -zxf "$FILE" || return
     fi
 
     # Add start command for dogstatsd
