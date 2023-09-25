@@ -133,6 +133,7 @@ setUpDotnetEnv() {
         return
     fi
 
+    echo "Extracting files from .NET APM artifacts"
     tar -xzf "$DD_DOTNET_TRACER_FILE" || return
     echo "Exporting environment variables"
     export CORECLR_ENABLE_PROFILING=1
