@@ -119,6 +119,7 @@ setUpDotnetEnv() {
     echo "Setting up Datadog tracing for .NET"
     getBinaries || return
 
+    echo "****************>>>>>>>>>>>>>>>>>>>>>>"
     if [ -z "$DD_DOTNET_TRACER_VERSION" ]; then
         DD_DOTNET_TRACER_VERSION=2.38.0
     fi
