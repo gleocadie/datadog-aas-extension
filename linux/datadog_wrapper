@@ -127,6 +127,7 @@ setUpDotnetEnv() {
     DD_DOTNET_TRACER_URL=https://github.com/DataDog/dd-trace-dotnet/releases/download/v${DD_DOTNET_TRACER_VERSION}/${DD_DOTNET_TRACER_FILE}
 
     echo "Installing .NET tracer from $DD_DOTNET_TRACER_URL"
+    rm ${DD_DOTNET_TRACER_FILE}
     if ! curl -L --fail "$DD_DOTNET_TRACER_URL" -o "$DD_DOTNET_TRACER_FILE"; then
         echo "Downloading the tracer was unsuccessful"
         return
