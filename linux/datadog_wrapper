@@ -207,4 +207,4 @@ export DD_DOTNET_TRACER_HOME="${DD_DIR}"
 env | grep CORECLR
 echo "Executing start command: \"$DD_START_APP\""
 cd "$CURRENT_DIR"
-eval "(env | grep CORECLR) ||$DD_START_APP"
+eval "(env | grep CORECLR) && $DD_START_APP"
